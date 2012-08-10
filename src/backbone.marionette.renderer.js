@@ -3,6 +3,7 @@
 
 // Render a template with data by passing in the template
 // selector and the data to render.
+/** @name Backbone.Marionette.Renderer */
 Marionette.Renderer = {
 
   // Render a template with data. The `template` parameter is

@@ -3,6 +3,11 @@
 
 // Manage templates stored in `<script>` blocks,
 // caching them for faster access.
+/**
+ * @class Backbone.Marionette.TemplateCache
+ * @param templateId
+ * @constructor
+ */
 Marionette.TemplateCache = function(templateId){
   this.templateId = templateId;
 };
@@ -10,7 +15,9 @@ Marionette.TemplateCache = function(templateId){
 // TemplateCache object-level methods. Manage the template
 // caches from these method calls instead of creating 
 // your own TemplateCache instances
-_.extend(Marionette.TemplateCache, {
+_.extend(Marionette.TemplateCache,
+/** @lends Backbone.Marionette.TemplateCache */
+{
   templateCaches: {},
 
   // Get the specified template by id. Either
@@ -52,7 +59,9 @@ _.extend(Marionette.TemplateCache, {
 // TemplateCache instance methods, allowing each
 // template cache object to manage it's own state
 // and know whether or not it has been loaded
-_.extend(Marionette.TemplateCache.prototype, {
+_.extend(Marionette.TemplateCache.prototype,
+/** @lends Backbone.Marionette.TemplateCache */
+{
 
   // Internal method to load the template asynchronously.
   load: function(){

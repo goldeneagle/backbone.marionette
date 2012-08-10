@@ -3,7 +3,13 @@
 
 // A view that iterates over a Backbone.Collection
 // and renders an individual ItemView for each model.
-Marionette.CollectionView = Marionette.View.extend({
+/**
+ * @class Backbone.Marionette.CollectionView
+ * @extends Backbone.Marionette.View
+ */
+Marionette.CollectionView = Marionette.View.extend(
+/** @lends Backbone.Marionette.CollectionView */
+{
   constructor: function(){
     Marionette.View.prototype.constructor.apply(this, arguments);
     this.initChildViewStorage();

@@ -16,7 +16,13 @@
 //
 // You can also add standard routes to an AppRouter.
 
-Marionette.AppRouter = Backbone.Router.extend({
+/**
+ * @class Backbone.Marionette.AppRouter
+ * @extends Backbone.Router
+ */
+Marionette.AppRouter = Backbone.Router.extend(
+/** @lends Backbone.Marionette.AppRouter */
+{
 
   constructor: function(options){
     Backbone.Router.prototype.constructor.call(this, options);

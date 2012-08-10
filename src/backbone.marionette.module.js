@@ -3,6 +3,15 @@
 
 // A simple module system, used to create privacy and encapsulation in
 // Marionette applications
+/**
+ * @class Backbone.Marionette.Module
+ * @extends Backbone.Marionette.EventBinder
+ *
+ * @param moduleName
+ * @param app
+ * @param customArgs
+ * @constructor
+ */
 Marionette.Module = function(moduleName, app, customArgs){
   this.moduleName = moduleName;
 
@@ -24,7 +33,11 @@ Marionette.Module = function(moduleName, app, customArgs){
 
 // Extend the Module prototype with events / bindTo, so that the module
 // can be used as an event aggregator or pub/sub.
-_.extend(Marionette.Module.prototype, Backbone.Events, {
+_.extend(Marionette.Module.prototype,
+/** @lends Backbone.Marionette.Module */
+Backbone.Events,
+/** @lends Backbone.Marionette.Module */
+{
 
   // Initializer for a specific module. Initializers are run when the
   // module's `start` method is called.

@@ -4,7 +4,13 @@
 // Used for rendering a branch-leaf, hierarchical structure.
 // Extends directly from CollectionView and also renders an
 // an item view as `modelView`, for the top leaf
-Marionette.CompositeView = Marionette.CollectionView.extend({
+/**
+ * @class Backbone.Marionette.CompositeView
+ * @extends Backbone.Marionette.CollectionView
+ */
+Marionette.CompositeView = Marionette.CollectionView.extend(
+/** @lends Backbone.Marionette.CompositeView */
+{
   constructor: function(options){
     Marionette.CollectionView.apply(this, arguments);
     this.itemView = this.getItemView();

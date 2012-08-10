@@ -2,7 +2,13 @@
 // ---------------
 
 // The core view type that other Marionette views extend from.
-Marionette.View = Backbone.View.extend({
+/**
+ * @class Backbone.Marionette.View
+ * @extends Backbone.View
+ */
+Marionette.View = Backbone.View.extend(
+/** @lends Backbone.Marionette.View */
+{
   constructor: function(){
     var eventBinder = new Marionette.EventBinder();
     _.extend(this, eventBinder);

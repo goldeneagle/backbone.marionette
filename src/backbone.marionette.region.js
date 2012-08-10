@@ -3,6 +3,11 @@
 
 // Manage the visual regions of your composite application. See
 // http://lostechies.com/derickbailey/2011/12/12/composite-js-apps-regions-and-region-managers/
+/**
+ * @class Backbone.Marionette.Region
+ * @param options
+ * @constructor
+ */
 Marionette.Region = function(options){
   this.options = options || {};
 
@@ -20,7 +25,11 @@ Marionette.Region = function(options){
   }
 };
 
-_.extend(Marionette.Region.prototype, Backbone.Events, {
+_.extend(Marionette.Region.prototype,
+/** @lends Backbone.Marionette.Region */
+Backbone.Events,
+/** @lends Backbone.Marionette.Region */
+{
 
   // Displays a backbone view instance inside of the region.
   // Handles calling the `render` method for you. Reads content

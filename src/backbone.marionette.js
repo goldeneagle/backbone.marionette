@@ -1,4 +1,5 @@
 Backbone.Marionette = (function(Backbone, _, $){
+  /** @namespace */
   var Marionette = {};
 
 // import "backbone.marionette.eventbinder.js"

@@ -3,7 +3,13 @@
 
 // A pub-sub object that can be used to decouple various parts
 // of an application through event-driven architecture.
-Marionette.EventAggregator = Marionette.EventBinder.extend({
+/**
+ * @class Backbone.Marionette.EventAggregator
+ * @extends Backbone.Marionette.EventBinder
+ */
+Marionette.EventAggregator = Marionette.EventBinder.extend(
+/** @lends Backbone.Marionette.EventAggregator */
+{
   
   // Extend any provided options directly on to the event binder
   constructor: function(options){
@@ -19,7 +25,10 @@ Marionette.EventAggregator = Marionette.EventBinder.extend({
 });
 
 // Copy the basic Backbone.Events on to the event aggregator
-_.extend(Marionette.EventAggregator.prototype, Backbone.Events);
+_.extend(Marionette.EventAggregator.prototype,
+/** @lends Backbone.Marionette.EventAggregator */
+Backbone.Events
+);
 
 // Copy the `extend` function used by Backbone's classes
 Marionette.EventAggregator.extend = Backbone.View.extend;

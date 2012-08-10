@@ -8,11 +8,16 @@
 //
 // Inspired by [Johnny Oshika](http://stackoverflow.com/questions/7567404/backbone-js-repopulate-or-recreate-the-view/7607853#7607853)
 
+/**
+ * @class Backbone.Marionette.EventBinder
+ */
 Marionette.EventBinder = function(){
   this._eventBindings = [];
 };
 
-_.extend(Marionette.EventBinder.prototype, {
+_.extend(Marionette.EventBinder.prototype,
+/** @lends Backbone.Marionette.EventBinder */
+{
   // Store the event binding in array so it can be unbound
   // easily, at a later point in time.
   bindTo: function (obj, eventName, callback, context) {

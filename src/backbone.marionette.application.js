@@ -4,6 +4,11 @@
 // Contain and manage the composite application as a whole.
 // Stores and starts up `Region` objects, includes an
 // event aggregator as `app.vent`
+/**
+ * @class Backbone.Marionette.Application
+ * @param options
+ * @constructor
+ */
 Marionette.Application = function(options){
   this.initCallbacks = new Marionette.Callbacks();
   this.vent = new Marionette.EventAggregator();
@@ -13,7 +18,11 @@ Marionette.Application = function(options){
   _.extend(this, eventBinder, options);
 };
 
-_.extend(Marionette.Application.prototype, Backbone.Events, {
+_.extend(Marionette.Application.prototype,
+/** @lends Backbone.Marionette.Application */
+Backbone.Events,
+/** @lends Backbone.Marionette.Application */
+{
   // Add an initializer that is either run at when the `start`
   // method is called, or run immediately if added after `start`
   // has already been called.
