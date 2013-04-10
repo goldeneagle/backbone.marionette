@@ -31,7 +31,7 @@ Marionette.CollectionView = Marionette.View.extend(
   // Handle a child item added to the collection
   addChildView: function(item, collection, options){
     this.closeEmptyView();
-    var ItemView = this.getItemView();
+    var ItemView = this.getItemView(item);
     return this.addItemView(item, ItemView, options.index);
   },
 
@@ -79,8 +79,9 @@ Marionette.CollectionView = Marionette.View.extend(
   // collection view and show it
   showCollection: function(){
     var that = this;
-    var ItemView = this.getItemView();
+    var ItemView;
     this.collection.each(function(item, index){
+      ItemView = this.getItemView(item);
       that.addItemView(item, ItemView, index);
     });
   },
@@ -110,7 +111,7 @@ Marionette.CollectionView = Marionette.View.extend(
   // Retrieve the itemView type, either from `this.options.itemView`
   // or from the `itemView` in the object definition. The "options"
   // takes precedence.
-  getItemView: function(){
+  getItemView: function(item){
     var itemView = this.options.itemView || this.itemView;
 
     if (!itemView){
