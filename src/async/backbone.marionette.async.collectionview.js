@@ -37,8 +37,9 @@ Async.CollectionView = {
     var that = this;
     var promises = [];
 
-    var ItemView = this.getItemView();
+    var ItemView;
     this.collection.each(function(item, index){
+      ItemView = that.getItemView(item);
       var promise = that.addItemView(item, ItemView, index);
       promises.push(promise);
     });
